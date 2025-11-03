@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { Employee } = require('../models'); // from models/index.js
 
-// ✅ Register new employee
+//  Register new employee
 exports.registerEmployee = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -29,7 +29,7 @@ exports.registerEmployee = async (req, res) => {
   }
 };
 
-// ✅ Employee login
+//  Employee login
 exports.loginEmployee = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -61,7 +61,7 @@ exports.loginEmployee = async (req, res) => {
   }
 };
 
-// ✅ Get all employees
+// Get all employees
 exports.getAllEmployees = async (req, res) => {
   try {
     const employees = await Employee.findAll({
@@ -73,7 +73,7 @@ exports.getAllEmployees = async (req, res) => {
   }
 };
 
-// ✅ Get employee by ID
+// Get employee by ID
 exports.getEmployeeById = async (req, res) => {
   try {
     const employee = await Employee.findByPk(req.params.id);
@@ -84,7 +84,7 @@ exports.getEmployeeById = async (req, res) => {
   }
 };
 
-// ✅ Update employee
+//  Update employee
 exports.updateEmployee = async (req, res) => {
   try {
     const { id } = req.params;
@@ -98,7 +98,7 @@ exports.updateEmployee = async (req, res) => {
   }
 };
 
-// ✅ Delete employee
+//  Delete employee
 exports.deleteEmployee = async (req, res) => {
   try {
     const deleted = await Employee.destroy({ where: { id: req.params.id } });

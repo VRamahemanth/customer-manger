@@ -1,6 +1,6 @@
 const { Enquiry, Employee } = require('../models');
 
-// 📨 Submit new enquiry (public route)
+//  Submit new enquiry (public route)
 exports.submitEnquiry = async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -11,7 +11,7 @@ exports.submitEnquiry = async (req, res) => {
   }
 };
 
-// 📋 Get unclaimed enquiries (protected)
+//  Get unclaimed enquiries (protected)
 exports.getUnclaimedEnquiries = async (req, res) => {
   try {
     const enquiries = await Enquiry.findAll({ where: { employeeId: null } });
@@ -21,7 +21,7 @@ exports.getUnclaimedEnquiries = async (req, res) => {
   }
 };
 
-// ✋ Claim an enquiry (protected)
+//  Claim an enquiry (protected)
 exports.claimEnquiry = async (req, res) => {
   try {
     const enquiry = await Enquiry.findByPk(req.params.id);
@@ -43,7 +43,7 @@ exports.claimEnquiry = async (req, res) => {
   }
 };
 
-// 👤 Get my enquiries (protected)
+//  Get my enquiries (protected)
 exports.getMyEnquiries = async (req, res) => {
   try {
     const enquiries = await Enquiry.findAll({ where: { employeeId: req.employee.id } });

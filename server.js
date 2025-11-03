@@ -13,7 +13,7 @@ connectDB();
 
 // Sync all models automatically
 sequelize.sync({ alter: true }).then(() => {
-  console.log('✅ All models synchronized');
+  console.log(' All models synchronized');
 });
 
 app.use('/api/employees', require('./routes/employeeRoutes'));
@@ -23,11 +23,11 @@ app.use('/api/enquiries', require('./routes/enquiryRoutes'));
 
 
 app.get('/', (req, res) => {
-    console.log('✅ Backend Working!!');
-    res.send('🚀 CRM Backend API is running successfully!');
+    console.log(' Backend Working!!');
+    res.send(' CRM Backend API is running successfully!');
   });
 
   
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
